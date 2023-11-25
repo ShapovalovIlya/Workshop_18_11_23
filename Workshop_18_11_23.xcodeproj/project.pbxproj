@@ -21,6 +21,7 @@
 		86000F8F2B09313C0082361F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86000F8E2B09313C0082361F /* RootView.swift */; };
 		86000F912B0931910082361F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86000F902B0931910082361F /* LoginState.swift */; };
 		86000F932B0932830082361F /* LoginActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86000F922B0932830082361F /* LoginActions.swift */; };
+		86CD43C32B11F37F00B2B578 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 86CD43C22B11F37F00B2B578 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86CD43C32B11F37F00B2B578 /* Networking in Frameworks */,
 				86000F8A2B0922A00082361F /* Redux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +132,7 @@
 			name = Workshop_18_11_23;
 			packageProductDependencies = (
 				86000F892B0922A00082361F /* Redux */,
+				86CD43C22B11F37F00B2B578 /* Networking */,
 			);
 			productName = Workshop_18_11_23;
 			productReference = 86000F6D2B091E140082361F /* Workshop_18_11_23.app */;
@@ -416,6 +419,10 @@
 		86000F892B0922A00082361F /* Redux */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Redux;
+		};
+		86CD43C22B11F37F00B2B578 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -24,7 +24,6 @@ struct LoginView: View {
             Button("Sign in", action: tapAction)
             .buttonStyle(.bordered)
             .disabled(action.disabled)
-            
         }
         .padding()
     }
@@ -46,7 +45,7 @@ struct LoginView: View {
             self == .inactive
         }
         
-        static func == (lhs: LoginView.ActionState, rhs: LoginView.ActionState) -> Bool {
+        static func == (lhs: ActionState, rhs: ActionState) -> Bool {
             String(describing: lhs) == String(describing: rhs)
         }
     }
