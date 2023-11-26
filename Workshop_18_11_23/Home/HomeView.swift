@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct HomeView<V:View>: View  {
+struct HomeView<V:View>: View, Equatable {
     let title: String
-    let posts: [Post]
+    @Binding var posts: [Post]
     let postDetail: () -> V
     let logout: () -> Void
     
@@ -31,13 +31,36 @@ struct HomeView<V:View>: View  {
         .navigationBarBackButtonHidden()
         .toolbar { LogoutButton(action: logout) }
     }
+    
+    static func == (lhs: HomeView<V>, rhs: HomeView<V>) -> Bool {
+        lhs.title == rhs.title
+        && lhs.posts == rhs.posts
+    }
+    
+}
+
+struct HomeConnector: Connector {
+    func map(_ store: EnvironmentStore) -> some View {
+        HomeView(
+            title: "Posts",
+            posts: Binding(
+                get: { store.home.posts },
+                set: { _ in }
+            ),
+            postDetail: EmptyView.init,
+            logout: {
+                store.dispatch(LoginActions.Logout())
+            } 
+        )
+        .equatable()
+    }
 }
 
 #Preview {
     NavigationView {
         HomeView(
             title: "Posts",
-            posts: Post.sample,
+            posts: .constant(Post.sample),
             postDetail: EmptyView.init,
             logout: {}
         )

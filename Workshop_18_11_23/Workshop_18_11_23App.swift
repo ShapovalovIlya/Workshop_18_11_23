@@ -37,7 +37,9 @@ struct Workshop_18_11_23App: App {
         }
         
         let sessionDriver = SessionDriver(store: store, logger: .system)
+        let networkDriver = NetworkDriver(store: store, logger: .system)
         
         store.subscribe(sessionDriver.asObserver)
+        store.subscribe(networkDriver.asObserver)
     }
 }

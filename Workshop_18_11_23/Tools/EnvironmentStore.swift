@@ -28,6 +28,10 @@ final class EnvironmentStore: ObservableObject {
         store.subscribe(asObserver)
     }
     
+    func dispatch(_ action: Action) {
+        store.dispatch(action)
+    }
+    
     subscript<T>(dynamicMember keyPath: KeyPath<Store<AppState>, T>) -> T {
         store[keyPath: keyPath]
     }

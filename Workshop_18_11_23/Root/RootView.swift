@@ -39,7 +39,7 @@ struct RootView<L: View, H: View>: View, Equatable {
 
 struct RootConnector: Connector {
     func map(_ store: EnvironmentStore) -> some View {
-        let rootState: RootView<LoginConnector, EmptyView>.State
+        let rootState: RootView<LoginConnector, HomeConnector>.State
         switch store.session {
         case .loginSuccess: rootState = .home
         default: rootState = .login
@@ -48,7 +48,7 @@ struct RootConnector: Connector {
         return RootView(
             state: rootState,
             login: LoginConnector.init,
-            home: EmptyView.init
+            home: HomeConnector.init
         )
         .equatable()
     }

@@ -10,7 +10,7 @@ import Foundation
 public extension NetworkOperator {
     //MARK: - Request
     struct Request: CustomStringConvertible {
-        typealias Response = (data: Data, response: URLResponse)
+        public typealias Response = (data: Data, response: URLResponse)
         
         let id: UUID
         let request: URLRequest
@@ -18,7 +18,7 @@ public extension NetworkOperator {
         
         public var description: String { request.url?.absoluteString ?? "Unknown" }
         
-        init(
+        public init(
             id: UUID,
             request: URLRequest,
             handler: @escaping (Result<Response, Error>) -> Void

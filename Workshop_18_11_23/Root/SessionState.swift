@@ -24,6 +24,9 @@ enum SessionState: Equatable, Reducer {
         case let action as SessionActions.SessionSuccess:
             self = .loginSuccess(action.token)
             
+        case is LoginActions.Logout:
+            self = .none
+            
         default: return
         }
     }

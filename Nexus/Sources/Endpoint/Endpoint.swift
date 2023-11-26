@@ -38,7 +38,7 @@ public struct Endpoint {
     }
     
     //MARK: - Public methods
-    func request(with payload: Data? = nil) -> URLRequest {
+    public func request(with payload: Data? = nil) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.httpBody = payload
@@ -46,12 +46,12 @@ public struct Endpoint {
     }
     
     //MARK: - Posts
-    static let posts = Self(
+    public static let posts = Self(
         path: "posts",
         method: .GET
     )
     
-    static func post(withId id: Int) -> Self {
+    public static func post(withId id: Int) -> Self {
         .init(
             path: ["posts", id.description].joined(separator: "/"),
             method: .GET
@@ -59,7 +59,7 @@ public struct Endpoint {
     }
     
     //MARK: - Comments
-    static func comments(for postId: Int) -> Self {
+    public static func comments(for postId: Int) -> Self {
         .init(
             path: "comments",
             method: .GET,

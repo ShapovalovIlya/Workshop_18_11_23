@@ -32,6 +32,9 @@ struct LoginState: Reducer {
         case let action as LoginActions.UpdatePassword:
             password = action.password
             
+        case is LoginActions.Logout:
+            self = .init()
+            
         default: return
         }
     }

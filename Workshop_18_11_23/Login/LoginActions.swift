@@ -20,4 +20,5 @@ enum LoginActions {
     }
     
     struct Login: Action {}
+    struct Logout: Action {}
 }

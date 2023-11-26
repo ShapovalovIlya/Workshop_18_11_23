@@ -29,6 +29,9 @@
 		86CD43D22B13737800B2B578 /* Endpoint in Frameworks */ = {isa = PBXBuildFile; productRef = 86CD43D12B13737800B2B578 /* Endpoint */; };
 		86CD43D42B13739100B2B578 /* SessionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43D32B13739100B2B578 /* SessionDriver.swift */; };
 		86CD43D62B13777200B2B578 /* SessionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43D52B13777200B2B578 /* SessionActions.swift */; };
+		86CD43D82B137B1500B2B578 /* NetworkDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43D72B137B1500B2B578 /* NetworkDriver.swift */; };
+		86CD43DA2B137DAF00B2B578 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43D92B137DAF00B2B578 /* HomeState.swift */; };
+		86CD43DC2B137DF200B2B578 /* HomeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43DB2B137DF200B2B578 /* HomeActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		86CD43CF2B13644E00B2B578 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		86CD43D32B13739100B2B578 /* SessionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDriver.swift; sourceTree = "<group>"; };
 		86CD43D52B13777200B2B578 /* SessionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionActions.swift; sourceTree = SOURCE_ROOT; };
+		86CD43D72B137B1500B2B578 /* NetworkDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDriver.swift; sourceTree = "<group>"; };
+		86CD43D92B137DAF00B2B578 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
+		86CD43DB2B137DF200B2B578 /* HomeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,9 @@
 				86CD43C52B1356F700B2B578 /* Home */,
 				86000F702B091E140082361F /* Workshop_18_11_23App.swift */,
 				86CD43D32B13739100B2B578 /* SessionDriver.swift */,
+				86CD43D72B137B1500B2B578 /* NetworkDriver.swift */,
+				86CD43D92B137DAF00B2B578 /* HomeState.swift */,
+				86CD43DB2B137DF200B2B578 /* HomeActions.swift */,
 				86CD43C42B13568C00B2B578 /* Login */,
 				86000F742B091E170082361F /* Assets.xcassets */,
 				86000F762B091E170082361F /* Preview Content */,
@@ -234,10 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86CD43DC2B137DF200B2B578 /* HomeActions.swift in Sources */,
 				86000F8F2B09313C0082361F /* RootView.swift in Sources */,
 				86000F912B0931910082361F /* LoginState.swift in Sources */,
 				86CD43CE2B13624900B2B578 /* SessionState.swift in Sources */,
 				86000F872B0922710082361F /* StoreProvider.swift in Sources */,
+				86CD43DA2B137DAF00B2B578 /* HomeState.swift in Sources */,
 				86CD43D62B13777200B2B578 /* SessionActions.swift in Sources */,
 				86CD43C92B1358F300B2B578 /* Post.swift in Sources */,
 				86000F8D2B092E430082361F /* LoginView.swift in Sources */,
@@ -249,6 +260,7 @@
 				86000F812B09206B0082361F /* Connector.swift in Sources */,
 				86CD43D02B13644E00B2B578 /* PostDetailView.swift in Sources */,
 				86000F712B091E140082361F /* Workshop_18_11_23App.swift in Sources */,
+				86CD43D82B137B1500B2B578 /* NetworkDriver.swift in Sources */,
 				86000F832B0921CA0082361F /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
