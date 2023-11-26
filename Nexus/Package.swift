@@ -13,14 +13,16 @@ let package = Package(
         .library(name: "Nexus", targets: ["Nexus"]),
         .library(name: "Redux", targets: ["Redux"]),
         .library(name: "Networking", targets: ["Networking"]),
+        .library(name: "Endpoint", targets: ["Endpoint"]),
     ],
     targets: [
         .target(name: "Nexus"),
         .target(name: "Redux"),
+        .target(name: "Endpoint"),
         .target(name: "Networking"),
         .testTarget(
             name: "NexusTests",
             dependencies: ["Nexus"]),
-        .testTarget(name: "EndpointTests", dependencies: ["Networking"]),
+        .testTarget(name: "EndpointTests", dependencies: ["Endpoint"]),
     ]
 )
