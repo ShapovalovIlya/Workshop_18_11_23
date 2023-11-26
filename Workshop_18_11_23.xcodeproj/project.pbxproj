@@ -25,6 +25,10 @@
 		86CD43C92B1358F300B2B578 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43C82B1358F300B2B578 /* Post.swift */; };
 		86CD43CB2B135F9100B2B578 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43CA2B135F9100B2B578 /* LogoutButton.swift */; };
 		86CD43CE2B13624900B2B578 /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43CD2B13624900B2B578 /* SessionState.swift */; };
+		86CD43D02B13644E00B2B578 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43CF2B13644E00B2B578 /* PostDetailView.swift */; };
+		86CD43D22B13737800B2B578 /* Endpoint in Frameworks */ = {isa = PBXBuildFile; productRef = 86CD43D12B13737800B2B578 /* Endpoint */; };
+		86CD43D42B13739100B2B578 /* SessionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43D32B13739100B2B578 /* SessionDriver.swift */; };
+		86CD43D62B13777200B2B578 /* SessionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CD43D52B13777200B2B578 /* SessionActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +49,9 @@
 		86CD43C82B1358F300B2B578 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		86CD43CA2B135F9100B2B578 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		86CD43CD2B13624900B2B578 /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
+		86CD43CF2B13644E00B2B578 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		86CD43D32B13739100B2B578 /* SessionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDriver.swift; sourceTree = "<group>"; };
+		86CD43D52B13777200B2B578 /* SessionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionActions.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +61,7 @@
 			files = (
 				86CD43C32B11F37F00B2B578 /* Networking in Frameworks */,
 				86000F8A2B0922A00082361F /* Redux in Frameworks */,
+				86CD43D22B13737800B2B578 /* Endpoint in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,9 +89,11 @@
 		86000F6F2B091E140082361F /* Workshop_18_11_23 */ = {
 			isa = PBXGroup;
 			children = (
+				86CD43CF2B13644E00B2B578 /* PostDetailView.swift */,
 				86CD43CC2B13606B00B2B578 /* Root */,
 				86CD43C52B1356F700B2B578 /* Home */,
 				86000F702B091E140082361F /* Workshop_18_11_23App.swift */,
+				86CD43D32B13739100B2B578 /* SessionDriver.swift */,
 				86CD43C42B13568C00B2B578 /* Login */,
 				86000F742B091E170082361F /* Assets.xcassets */,
 				86000F762B091E170082361F /* Preview Content */,
@@ -141,6 +151,7 @@
 		86CD43CC2B13606B00B2B578 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				86CD43D52B13777200B2B578 /* SessionActions.swift */,
 				86000F8E2B09313C0082361F /* RootView.swift */,
 				86CD43CD2B13624900B2B578 /* SessionState.swift */,
 			);
@@ -166,6 +177,7 @@
 			packageProductDependencies = (
 				86000F892B0922A00082361F /* Redux */,
 				86CD43C22B11F37F00B2B578 /* Networking */,
+				86CD43D12B13737800B2B578 /* Endpoint */,
 			);
 			productName = Workshop_18_11_23;
 			productReference = 86000F6D2B091E140082361F /* Workshop_18_11_23.app */;
@@ -226,13 +238,16 @@
 				86000F912B0931910082361F /* LoginState.swift in Sources */,
 				86CD43CE2B13624900B2B578 /* SessionState.swift in Sources */,
 				86000F872B0922710082361F /* StoreProvider.swift in Sources */,
+				86CD43D62B13777200B2B578 /* SessionActions.swift in Sources */,
 				86CD43C92B1358F300B2B578 /* Post.swift in Sources */,
 				86000F8D2B092E430082361F /* LoginView.swift in Sources */,
 				86CD43CB2B135F9100B2B578 /* LogoutButton.swift in Sources */,
+				86CD43D42B13739100B2B578 /* SessionDriver.swift in Sources */,
 				86000F852B0921E40082361F /* EnvironmentStore.swift in Sources */,
 				86CD43C72B13570D00B2B578 /* HomeView.swift in Sources */,
 				86000F932B0932830082361F /* LoginActions.swift in Sources */,
 				86000F812B09206B0082361F /* Connector.swift in Sources */,
+				86CD43D02B13644E00B2B578 /* PostDetailView.swift in Sources */,
 				86000F712B091E140082361F /* Workshop_18_11_23App.swift in Sources */,
 				86000F832B0921CA0082361F /* AppState.swift in Sources */,
 			);
@@ -459,6 +474,10 @@
 		86CD43C22B11F37F00B2B578 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
+		};
+		86CD43D12B13737800B2B578 /* Endpoint */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Endpoint;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

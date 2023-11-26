@@ -17,8 +17,8 @@ public struct Endpoint {
     private var url: URL {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "reqres.in"
-        components.path = ["api", path].joined(separator: "/")
+        components.host = "jsonplaceholder.typicode.com"
+        components.path = ["/", path].joined()
 
         guard let url = components.url else {
             preconditionFailure("Unable to create url from \(components)")

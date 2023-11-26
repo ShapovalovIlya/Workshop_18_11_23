@@ -24,7 +24,7 @@ struct Workshop_18_11_23App: App {
     var body: some Scene {
         WindowGroup {
             StoreProvider(store: store) {
-                LoginConnector()
+                RootConnector()
             }
         }
     }
@@ -35,6 +35,9 @@ struct Workshop_18_11_23App: App {
             Logger.system.debug("Store: \(String(describing: action), align: .right(columns: 10))")
             state.reduce(action)
         }
-        print(#function)
+        
+        let sessionDriver = SessionDriver(store: store, logger: .system)
+        
+        store.subscribe(sessionDriver.asObserver)
     }
 }

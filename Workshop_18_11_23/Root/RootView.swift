@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct RootView<V: View>: View {
+struct RootView<L: View, H: View>: View, Equatable {
     let state: State
-    let login: () -> V
-    let home: () -> V
+    let login: () -> L
+    let home: () -> H
     
     private let transition: AnyTransition = .slide
     
@@ -27,13 +27,32 @@ struct RootView<V: View>: View {
         }
     }
     
+    static func == (lhs: RootView<L,H>, rhs: RootView<L,H>) -> Bool {
+        lhs.state == rhs.state
+    }
+    
     enum State: Equatable {
         case login
         case home
     }
 }
 
-
+struct RootConnector: Connector {
+    func map(_ store: EnvironmentStore) -> some View {
+        let rootState: RootView<LoginConnector, EmptyView>.State
+        switch store.session {
+        case .loginSuccess: rootState = .home
+        default: rootState = .login
+        }
+        
+        return RootView(
+            state: rootState,
+            login: LoginConnector.init,
+            home: EmptyView.init
+        )
+        .equatable()
+    }
+}
 
 #Preview {
     RootView(

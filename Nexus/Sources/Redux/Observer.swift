@@ -8,7 +8,6 @@
 import Foundation
 
 public final class Observer<State> {
-    public let id: UUID = .init()
     public let queue: DispatchQueue
     public let observe: (State) -> Status
     

@@ -21,7 +21,7 @@ public final class Store<State> {
     public private(set) var state: State
     public let reducer: Reducer
     let queue: DispatchQueue = .init(label: "Store queue")
-    var observers: [UUID: Observer<State>] = .init()
+    var observers: Set<Observer<State>> = .init()
     
     //MARK: - init(_:)
     public init(
@@ -36,13 +36,13 @@ public final class Store<State> {
     public func dispatch(_ action: Action) {
         queue.sync {
             reducer(&state, action)
-            observers.map(\.value).forEach(notify)
+            observers.forEach(notify)
         }
     }
     
     public func subscribe(_ observer: Observer<State>) {
         queue.sync {
-            observers.updateValue(observer, forKey: observer.id)
+            observers.insert(observer)
             notify(observer)
         }
     }
@@ -59,7 +59,7 @@ private extension Store {
             
             guard case .dead = status else { return }
             self.queue.async {
-                self.observers.removeValue(forKey: observer.id)
+                self.observers.remove(observer)
             }
         }
     }
