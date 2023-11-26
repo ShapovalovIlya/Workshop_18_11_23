@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct LoginView: View, Equatable {
+    //MARK: - Properties
     @Binding var login: String
     @Binding var password: String
     let action: ActionState
     
+    //MARK: - Body
     var body: some View {
         VStack(spacing: 10) {
             Text("Hello!")
@@ -28,7 +30,15 @@ struct LoginView: View {
         .padding()
     }
     
-    func tapAction() {
+    //MARK: - Public methods
+    static func == (lhs: LoginView, rhs: LoginView) -> Bool {
+        lhs.login == rhs.login
+        && lhs.password == rhs.password
+        && lhs.action == rhs.action
+    }
+    
+    //MARK: - Private methods
+    private func tapAction() {
         guard case .active(let command) = action else {
             return
         }
@@ -66,6 +76,7 @@ struct LoginConnector: Connector {
             ? .active({ store.store.dispatch(LoginActions.Login()) })
             : .inactive
         )
+        .equatable()
     }
 }
 

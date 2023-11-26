@@ -10,7 +10,7 @@ import OSLog
 
 public final class NetworkOperator {
     private typealias RequestTask = (request: Request, task: URLSessionDataTask)
-    private let queue = DispatchQueue(label: "NetworkOperator", attributes: .concurrent)
+    private let queue: DispatchQueue
     private let session: URLSession
     private var logger: Logger?
     
@@ -20,10 +20,18 @@ public final class NetworkOperator {
     //MARK: - init(_:)
     public init(
         config: URLSessionConfiguration = .default,
+        queue: DispatchQueue = .init(label: "NetworkOperator"),
         logger: Logger? = nil
     ) {
         self.session = URLSession(configuration: config)
+        self.queue = queue
         self.logger = logger
+        
+        logger?.debug(#function)
+    }
+    
+    deinit {
+        logger?.debug(#function)
     }
     
     //MARK: - Public methods
@@ -82,6 +90,7 @@ private extension NetworkOperator {
             assertionFailure("Task not found")
             return
         }
+        logger?.trace("Cancel: \(requestId, align: .right(columns: 10))")
         task.cancel()
     }
 }

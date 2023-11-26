@@ -7,23 +7,14 @@
 
 import SwiftUI
 import Redux
+import OSLog
 
-/*
- View <- user
- 
- business <- WE ARE HERE!
- dependencies <-
- 
- MV-X-
- 
- UIKit -> View - Controller
- SwiftUI -> View: ViewModel
- 
- ViewModel, Presenter, Interactor
- 
- Model
- 
- */
+extension Logger {
+    static let system = Self(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: "System"
+    )
+}
 
 @main
 struct Workshop_18_11_23App: App {
@@ -41,7 +32,7 @@ struct Workshop_18_11_23App: App {
     //MARK: - init(_:)
     init() {
         store = Store(initial: AppState()) { state, action in
-            print("Store:\t \(action)")
+            Logger.system.debug("Store: \(String(describing: action), align: .right(columns: 10))")
             state.reduce(action)
         }
         print(#function)
